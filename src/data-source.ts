@@ -1,17 +1,14 @@
+import path from "path";
 import "reflect-metadata";
 import { DataSource } from "typeorm";
-import { User } from "./entities/User";
+import * as dotenv from "dotenv";
+dotenv.config();
 
 export const AppDataSource = new DataSource({
   type: "postgres",
-  host: "localhost",
-  port: 5432,
-  username: "test",
-  password: "test",
-  database: "test",
-  synchronize: true,
+  url: process.env.DATABASE_URL,
   logging: false,
-  entities: [User],
-  migrations: [],
-  subscribers: [],
+  ssl: { rejectUnauthorized: false },
+  entities: [path.join(__dirname, `./entities/**/*.{js,ts}`)],
+  migrations: [path.join(__dirname, `./migrations/**/*.{js,ts}`)],
 });
