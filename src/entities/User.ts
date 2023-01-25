@@ -5,7 +5,9 @@ import {
   Column,
   CreateDateColumn,
   UpdateDateColumn,
+  OneToMany,
 } from "typeorm";
+import { Purchase } from "./Purchase";
 
 @Entity()
 export class User {
@@ -26,6 +28,9 @@ export class User {
 
   @UpdateDateColumn()
   updatedAt?: Date;
+
+  @OneToMany(() => Purchase, (purchase) => purchase.user)
+  purchases: Purchase[];
 
   comparePwd = async (pwdString: string): Promise<boolean> => {
     return await compare(pwdString, this.password);
