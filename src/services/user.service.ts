@@ -22,7 +22,7 @@ class UserService {
     });
   };
 
-  loaderUser = async (req: Request) => {
+  userLoader = async (req: Request) => {
     const users: User[] = await userRepository.all();
     return {
       status: 200,

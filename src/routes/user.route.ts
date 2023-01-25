@@ -13,12 +13,12 @@ userRouter.post(
   userController.userCreator
 );
 
-/* userRouter.get(
-    "/users",
-    tokenValidator,
-    ownerValidator,
-    userController.loaderUser
-  ); */
+userRouter.get(
+  "/users",
+  // tokenValidator,
+  // ownerValidator,
+  userController.userLoader
+);
 
 /* userRouter.post(
     "/users/login",
