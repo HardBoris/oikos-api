@@ -1,18 +1,11 @@
 import { Request } from "express";
-import { sign } from "jsonwebtoken";
-import { Purchase, User } from "../entities";
+import { Purchase } from "../entities";
 import { userRepository } from "../repositories";
 import { AssertsShape } from "yup/lib/object";
-import { hash } from "bcrypt";
 import * as dotenv from "dotenv";
-import { purchaseShape, userShape } from "../shapes";
-import purchaseRepository from "../repositories/purchase.repository";
+import { purchaseShape } from "../shapes";
+import { purchaseRepository } from "../repositories";
 dotenv.config();
-
-interface ILogin {
-  status: number;
-  message: object;
-}
 
 class PurchaseService {
   purchaseUser = async ({ decoded }: Request) =>

@@ -1,3 +1,4 @@
+import { PurchaseDetail } from "./PurchaseDetails";
 import { networkInterfaces } from "os";
 import {
   Entity,
@@ -6,10 +7,11 @@ import {
   CreateDateColumn,
   ManyToOne,
   JoinColumn,
+  OneToMany,
 } from "typeorm";
 import { User } from "./User";
 
-@Entity()
+@Entity("purchase")
 export class Purchase {
   @PrimaryGeneratedColumn("uuid")
   purchaseId?: string;
@@ -23,4 +25,11 @@ export class Purchase {
   @ManyToOne(() => User, (user) => user.purchases)
   @JoinColumn({ name: "userId" })
   user: User;
+
+  @OneToMany(
+    () => PurchaseDetail,
+    (purchaseDetail) => purchaseDetail.purchase,
+    { eager: true }
+  )
+  purchaseDetails: PurchaseDetail[];
 }
