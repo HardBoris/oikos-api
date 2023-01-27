@@ -29,7 +29,7 @@ export class User {
   @UpdateDateColumn()
   updatedAt?: Date;
 
-  @OneToMany(() => Purchase, (purchase) => purchase.user)
+  @OneToMany(() => Purchase, (purchase) => purchase.user, { eager: true })
   purchases: Purchase[];
 
   comparePwd = async (pwdString: string): Promise<boolean> => {

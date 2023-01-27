@@ -11,6 +11,11 @@ class UserController {
     const { status, users } = await userService.userLoader(req);
     return res.status(status).json(users);
   };
+
+  userLoger = async (req: Request, res: Response) => {
+    const { status, message } = await userService.userLoger(req);
+    return res.status(status).json(message);
+  };
 }
 
 export default new UserController();

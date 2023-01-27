@@ -1,7 +1,7 @@
 import * as yup from "yup";
 
 class UserShape {
-  toCreateUser = yup.object().shape({
+  userCreator = yup.object().shape({
     userName: yup.string().notRequired(),
     email: yup.string().email().lowercase().required(),
     password: yup.string().required(),
@@ -14,12 +14,12 @@ class UserShape {
     createdAt: yup.string().required(),
   });
 
-  loginUser = yup.object().shape({
+  userLoger = yup.object().shape({
     email: yup.string().email().required(),
     password: yup.string().required(),
   });
 
-  toUpdateUser = yup.object().shape({
+  userUpdater = yup.object().shape({
     userId: yup.string().uuid().required(),
     email: yup.string().email().optional(),
     userName: yup.string().optional(),
@@ -32,7 +32,7 @@ class UserShape {
     updatedAt: yup.string().required(),
   });
 
-  deleteUser = yup.object().shape({
+  userDeleter = yup.object().shape({
     userId: yup.string().uuid().required(),
   });
 }

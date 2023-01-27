@@ -30,7 +30,7 @@ class UserService {
     };
   };
 
-  loginUser = async ({ validated }: Request): Promise<ILogin> => {
+  userLoger = async ({ validated }: Request): Promise<ILogin> => {
     const user: User = await userRepository.findOne({
       email: validated.email,
     });

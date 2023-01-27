@@ -1,9 +1,11 @@
+import { networkInterfaces } from "os";
 import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
   ManyToOne,
+  JoinColumn,
 } from "typeorm";
 import { User } from "./User";
 
@@ -19,5 +21,6 @@ export class Purchase {
   purchaseTotal?: number;
 
   @ManyToOne(() => User, (user) => user.purchases)
+  @JoinColumn({ name: "userId" })
   user: User;
 }

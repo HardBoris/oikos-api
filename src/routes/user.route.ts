@@ -8,7 +8,7 @@ const userRouter = Router();
 
 userRouter.post(
   "/users/register",
-  validadeSchema(userShape.toCreateUser),
+  validadeSchema(userShape.userCreator),
   verifyUserExists,
   userController.userCreator
 );
@@ -20,12 +20,12 @@ userRouter.get(
   userController.userLoader
 );
 
-/* userRouter.post(
-    "/users/login",
-    validadeSchema(loginUserSchema),
-    verifyUserNotExists,
-    userController.loginUser
-  ); */
+userRouter.post(
+  "/users/login",
+  validadeSchema(userShape.userLoger),
+  // verifyUserNotExists,
+  userController.userLoger
+);
 
 /* userRouter.patch(
     "/users/update",
