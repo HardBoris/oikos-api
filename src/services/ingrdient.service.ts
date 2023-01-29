@@ -1,11 +1,9 @@
 import { Request } from "express";
-import { Ingredient, Purchase } from "../entities";
-import { ingredientRepository, userRepository } from "../repositories";
+import { Ingredient } from "../entities";
+import { ingredientRepository } from "../repositories";
 import { AssertsShape } from "yup/lib/object";
 import * as dotenv from "dotenv";
-import { purchaseShape } from "../shapes";
-import { purchaseRepository } from "../repositories";
-import ingredientShape from "../shapes/ingredient.shape";
+import { ingredientShape } from "../shapes";
 dotenv.config();
 
 class IngredientService {
