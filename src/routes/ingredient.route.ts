@@ -9,4 +9,10 @@ ingredientRouter.post(
   tokenValidator,
   ingredientController.ingredientCreator
 );
+
+ingredientRouter.get(
+  "/ingredients",
+  tokenValidator,
+  ingredientController.ingredientLoader
+);
 export default ingredientRouter;
