@@ -9,4 +9,10 @@ purchaseRouter.post(
   tokenValidator,
   purchaseController.purchaseCreator
 );
+
+purchaseRouter.get(
+  "/purchases",
+  tokenValidator,
+  purchaseController.purchaseLoader
+);
 export default purchaseRouter;
