@@ -1,4 +1,10 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from "typeorm";
 import { Ingredient } from "./Ingredients";
 import { Purchase } from "./Purchase";
 
@@ -14,8 +20,10 @@ export class PurchaseDetail {
   ingredientPrice: number;
 
   @ManyToOne(() => Purchase, (purchase) => purchase.purchaseDetails)
+  @JoinColumn({ name: "purchaseId" })
   purchase: Purchase;
 
   @ManyToOne(() => Ingredient, (ingredient) => ingredient.purchaseDetails)
+  @JoinColumn({ name: "ingredientId" })
   ingredient: Ingredient;
 }

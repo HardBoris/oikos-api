@@ -9,7 +9,7 @@ dotenv.config();
 class IngredientService {
   ingredientCreator = async ({ body }: Request): Promise<AssertsShape<any>> => {
     const ingredient: Ingredient = await ingredientRepository.save(body);
-    return await ingredientShape.ingredient.validate(ingredient, {
+    return await ingredientShape.ingredientCreator.validate(ingredient, {
       stripUnknown: true,
     });
   };
