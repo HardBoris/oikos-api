@@ -18,9 +18,6 @@ export class Purchase {
   @CreateDateColumn()
   purchaseDate?: Date;
 
-  @Column({ type: "float", default: 0.0 })
-  purchaseTotal?: number;
-
   @ManyToOne(() => User, (user) => user.purchases)
   @JoinColumn({ name: "userId" })
   user: User;
