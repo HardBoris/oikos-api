@@ -14,8 +14,7 @@ export class Ingredient {
 
   @OneToMany(
     () => PurchaseDetail,
-    (purchaseDetail) => purchaseDetail.ingredient,
-    { eager: true }
+    (purchaseDetail) => purchaseDetail.ingredient
   )
   purchaseDetails: PurchaseDetail[];
 }

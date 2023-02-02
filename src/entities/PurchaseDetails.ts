@@ -13,10 +13,10 @@ export class PurchaseDetail {
   @PrimaryGeneratedColumn("uuid")
   purchaseDetailId?: string;
 
-  @Column()
+  @Column({ type: "float" })
   ingredientQty: number;
 
-  @Column()
+  @Column({ type: "float" })
   ingredientPrice: number;
 
   @ManyToOne(() => Purchase, (purchase) => purchase.purchaseDetails)

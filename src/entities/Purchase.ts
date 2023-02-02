@@ -1,5 +1,4 @@
 import { PurchaseDetail } from "./PurchaseDetails";
-import { networkInterfaces } from "os";
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -19,7 +18,7 @@ export class Purchase {
   @CreateDateColumn()
   purchaseDate?: Date;
 
-  @Column({ default: 0 })
+  @Column({ type: "float", default: 0.0 })
   purchaseTotal?: number;
 
   @ManyToOne(() => User, (user) => user.purchases)

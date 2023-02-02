@@ -28,7 +28,7 @@ class PDService {
     if (!ingrediente) {
       ingrediente = await ingredientRepository.save({
         ingredientName: body.ingredientName,
-        measurementUnit: "u",
+        measurementUnit: body.measurementUnit,
       });
     }
 
