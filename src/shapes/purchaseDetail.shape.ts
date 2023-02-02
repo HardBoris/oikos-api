@@ -6,24 +6,20 @@ class PurchaseDetailShape {
     ingredientPrice: yup.number().required(),
   });
 
-  createdPurchaseDetail = yup.object().shape({
+  purchaseDetail = yup.object().shape({
     purchaseDetailId: yup.string().uuid(),
     ingredientQty: yup.number(),
     ingredientPrice: yup.number(),
-    ingredient: yup.object().shape({
-      ingredientId: yup.string(),
-      ingredientName: yup.string(),
-    }),
+    ingredient: yup.string(),
+    purchase: yup.string(),
   });
 
   updatedPurchaseDetail = yup.object().shape({
     purchaseDetailId: yup.string().uuid(),
     ingredientQty: yup.number(),
     ingredientPrice: yup.number(),
-    ingredient: yup.object().shape({
-      ingredientId: yup.string(),
-      ingredientName: yup.string(),
-    }),
+    ingredient: yup.string(),
+    purchase: yup.string(),
   });
 }
 

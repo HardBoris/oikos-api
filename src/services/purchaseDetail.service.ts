@@ -8,6 +8,7 @@ import {
 import { AssertsShape } from "yup/lib/object";
 import * as dotenv from "dotenv";
 import { purchaseDetailShape } from "../shapes";
+import { ErrorHandler } from "../errors";
 dotenv.config();
 
 class PDService {
@@ -20,7 +21,6 @@ class PDService {
   pdCreator = async (req: Request): Promise<AssertsShape<any>> => {
     const myPurchase = await this.purchase(req);
 
-    // const myIngredient = await this.ingredient(req);
     const body = req.body;
 
     let ingrediente = await this.ingredient(req);
@@ -37,7 +37,7 @@ class PDService {
       purchase: myPurchase.purchaseId,
       ingredient: ingrediente.ingredientId,
     });
-    return await purchaseDetailShape.purchaseDetailCreator.validate(detail, {
+    return await purchaseDetailShape.purchaseDetail.validate(detail, {
       stripUnknown: true,
     });
   };
@@ -54,7 +54,10 @@ class PDService {
     const detail: PurchaseDetail = await purchaseDetailRepository.findOne({
       purchaseDetailId: req.params.pdId,
     });
-    console.log(detail);
+
+    if (!detail) {
+      throw new ErrorHandler(404, "Detail not found");
+    }
 
     Object.keys(req.body).forEach((key) => {
       if (req.body[key] && key !== "purchaseDetailId") {
@@ -63,13 +66,9 @@ class PDService {
     });
 
     const updatedDetail = await purchaseDetailRepository.save(detail);
-    return await purchaseDetailShape.createdPurchaseDetail.validate(
-      updatedDetail,
-      {
-        stripUnknown: true,
-      }
-    );
-    // return updatedDetail;
+    return await purchaseDetailShape.purchaseDetail.validate(updatedDetail, {
+      stripUnknown: true,
+    });
   };
 }
 
