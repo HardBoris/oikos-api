@@ -24,7 +24,7 @@ export class RecipeDetail {
   measurementUnit: string;
 
   @ManyToOne(() => Ingredient, (ingredient) => ingredient.recipeDetails)
-  @JoinColumn({ name: "recipeId" })
+  @JoinColumn({ name: "ingredientId" })
   ingredient: Ingredient;
 
   @ManyToOne(() => Recipe, (recipe) => recipe.recipeDetails)
