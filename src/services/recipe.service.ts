@@ -1,10 +1,8 @@
 import { Request } from "express";
-import { Ingredient, Recipe } from "../entities";
-import { ingredientRepository, recipeRepository } from "../repositories";
+import { Recipe } from "../entities";
+import { recipeRepository } from "../repositories";
 import { AssertsShape } from "yup/lib/object";
-import * as dotenv from "dotenv";
-import { ingredientShape, recipeShape } from "../shapes";
-dotenv.config();
+import { recipeShape } from "../shapes";
 
 class RecipeService {
   recipeCreator = async ({ body }: Request): Promise<AssertsShape<any>> => {
