@@ -3,7 +3,7 @@ import userService from "./user.service";
 import ingredientService from "./ingredient.service";
 import pdService from "./purchaseDetail.service";
 import recipeService from "./recipe.service";
-import recipeDetailService from "./recipeDetail.service";
+import rdService from "./recipeDetail.service";
 
 export {
   userService,
@@ -11,5 +11,5 @@ export {
   ingredientService,
   pdService,
   recipeService,
-  recipeDetailService,
+  rdService,
 };

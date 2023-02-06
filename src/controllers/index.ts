@@ -3,6 +3,7 @@ import userController from "./user.controller";
 import pdController from "./purchaseDetail.controller";
 import ingredientController from "./ingredient.controller";
 import recipeController from "./recipe.controller";
+import rdController from "./recipeDetail.controller";
 
 export {
   userController,
@@ -10,4 +11,5 @@ export {
   pdController,
   ingredientController,
   recipeController,
+  rdController,
 };
