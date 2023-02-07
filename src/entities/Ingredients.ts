@@ -1,6 +1,4 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { PurchaseDetail } from "./PurchaseDetails";
-import { RecipeDetail } from "./RecipeDetail";
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity("ingredients")
 export class Ingredient {
@@ -13,12 +11,12 @@ export class Ingredient {
   @Column()
   measurementUnit: string;
 
-  @OneToMany(
+  /* @OneToMany(
     () => PurchaseDetail,
     (purchaseDetail) => purchaseDetail.ingredient
   )
-  purchaseDetails: PurchaseDetail[];
+  purchaseDetails: PurchaseDetail[]; */
 
-  @OneToMany(() => RecipeDetail, (recipeDetail) => recipeDetail.ingredient)
-  recipeDetails: RecipeDetail[];
+  /* @OneToMany(() => RecipeDetail, (recipeDetail) => recipeDetail.ingredient)
+  recipeDetails: RecipeDetail[]; */
 }

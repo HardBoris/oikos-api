@@ -13,8 +13,14 @@ export class PurchaseDetail {
   @PrimaryGeneratedColumn("uuid")
   purchaseDetailId?: string;
 
+  @Column()
+  ingredientName: string;
+
   @Column({ type: "float" })
   ingredientQty: number;
+
+  @Column()
+  measurementUnit: string;
 
   @Column({ type: "float" })
   ingredientPrice: number;
@@ -23,7 +29,7 @@ export class PurchaseDetail {
   @JoinColumn({ name: "purchaseId" })
   purchase: Purchase;
 
-  @ManyToOne(() => Ingredient, (ingredient) => ingredient.purchaseDetails)
+  /* @ManyToOne(() => Ingredient, (ingredient) => ingredient.purchaseDetails)
   @JoinColumn({ name: "ingredientId" })
-  ingredient: Ingredient;
+  ingredient: Ingredient; */
 }

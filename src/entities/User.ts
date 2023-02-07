@@ -7,7 +7,9 @@ import {
   UpdateDateColumn,
   OneToMany,
 } from "typeorm";
+import { Production } from "./Production";
 import { Purchase } from "./Purchase";
+import { Recipe } from "./Recipe";
 
 @Entity("users")
 export class User {
@@ -31,6 +33,12 @@ export class User {
 
   @OneToMany(() => Purchase, (purchase) => purchase.user, { eager: true })
   purchases: Purchase[];
+
+  @OneToMany(() => Recipe, (recipe) => recipe.user, { eager: true })
+  recipes: Recipe[];
+
+  @OneToMany(() => Production, (production) => production.user, { eager: true })
+  productions: Production[];
 
   comparePwd = async (pwdString: string): Promise<boolean> => {
     return await compare(pwdString, this.password);

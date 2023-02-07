@@ -2,7 +2,6 @@ import { PurchaseDetail } from "./PurchaseDetails";
 import {
   Entity,
   PrimaryGeneratedColumn,
-  Column,
   CreateDateColumn,
   ManyToOne,
   JoinColumn,

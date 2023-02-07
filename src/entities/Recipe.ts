@@ -2,12 +2,12 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
-  CreateDateColumn,
   ManyToOne,
   JoinColumn,
   OneToMany,
 } from "typeorm";
 import { RecipeDetail } from "./RecipeDetail";
+import { User } from "./User";
 
 @Entity("recipes")
 export class Recipe {
@@ -17,6 +17,12 @@ export class Recipe {
   @Column()
   recipeName: string;
 
-  @OneToMany(() => RecipeDetail, (recipeDetail) => recipeDetail.recipe)
+  @ManyToOne(() => User, (user) => user.recipes)
+  @JoinColumn({ name: "userId" })
+  user: User;
+
+  @OneToMany(() => RecipeDetail, (recipeDetail) => recipeDetail.recipe, {
+    eager: true,
+  })
   recipeDetails: RecipeDetail[];
 }
