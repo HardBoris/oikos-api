@@ -1,4 +1,5 @@
 import ingredientRepository from "./ingredient.repository";
+import productionRepository from "./production.repository";
 import purchaseRepository from "./purchase.repository";
 import purchaseDetailRepository from "./purchaseDetail.repository";
 import recipeRepository from "./recipe.repository";
@@ -12,4 +13,5 @@ export {
   ingredientRepository,
   recipeRepository,
   recipeDetailRepository,
+  productionRepository,
 };
