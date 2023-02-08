@@ -23,6 +23,7 @@ export class Recipe {
 
   @OneToMany(() => RecipeDetail, (recipeDetail) => recipeDetail.recipe, {
     eager: true,
+    cascade: true,
   })
   recipeDetails: RecipeDetail[];
 }
