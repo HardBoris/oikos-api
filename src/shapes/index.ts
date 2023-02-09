@@ -1,5 +1,6 @@
 import ingredientShape from "./ingredient.shape";
 import productionShape from "./production.shape";
+import productionDetailShape from "./productionDetail.shape";
 import purchaseShape from "./purchase.shape";
 import purchaseDetailShape from "./purchaseDetail.shape";
 import recipeShape from "./recipe.shape";
@@ -14,4 +15,5 @@ export {
   recipeShape,
   recipeDetailShape,
   productionShape,
+  productionDetailShape,
 };
