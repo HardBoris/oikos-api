@@ -5,6 +5,7 @@ import purchaseDetailRepository from "./purchaseDetail.repository";
 import recipeRepository from "./recipe.repository";
 import recipeDetailRepository from "./recipeDetail.repository";
 import userRepository from "./user.repository";
+import proDetRepository from "./productionDetail.repository";
 
 export {
   userRepository,
@@ -14,4 +15,5 @@ export {
   recipeRepository,
   recipeDetailRepository,
   productionRepository,
+  proDetRepository,
 };
