@@ -4,6 +4,7 @@ import pdController from "./purchaseDetail.controller";
 import ingredientController from "./ingredient.controller";
 import recipeController from "./recipe.controller";
 import rdController from "./recipeDetail.controller";
+import productionController from "./production.controller";
 
 export {
   userController,
@@ -12,4 +13,5 @@ export {
   ingredientController,
   recipeController,
   rdController,
+  productionController,
 };
