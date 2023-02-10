@@ -1,5 +1,6 @@
 import { Express } from "express";
 import ingredientRouter from "./ingredient.route";
+import productionRouter from "./production.route";
 import purchaseRouter from "./purchase.route";
 import purchaseDetailRouter from "./purchaseDetail.route";
 import recipeRouter from "./recipe.route";
@@ -13,6 +14,7 @@ const registerRouters = (app: Express): void => {
   app.use(purchaseDetailRouter);
   app.use(recipeRouter);
   app.use(recipeDetailRouter);
+  app.use(productionRouter);
 };
 
 export default registerRouters;
