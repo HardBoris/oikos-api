@@ -5,6 +5,7 @@ import ingredientController from "./ingredient.controller";
 import recipeController from "./recipe.controller";
 import rdController from "./recipeDetail.controller";
 import productionController from "./production.controller";
+import proDetController from "./productionDetail.controller";
 
 export {
   userController,
@@ -14,4 +15,5 @@ export {
   recipeController,
   rdController,
   productionController,
+  proDetController,
 };
