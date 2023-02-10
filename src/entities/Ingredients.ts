@@ -10,13 +10,4 @@ export class Ingredient {
 
   @Column()
   measurementUnit: string;
-
-  /* @OneToMany(
-    () => PurchaseDetail,
-    (purchaseDetail) => purchaseDetail.ingredient
-  )
-  purchaseDetails: PurchaseDetail[]; */
-
-  /* @OneToMany(() => RecipeDetail, (recipeDetail) => recipeDetail.ingredient)
-  recipeDetails: RecipeDetail[]; */
 }

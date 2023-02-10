@@ -2,10 +2,8 @@ import { Request } from "express";
 import { Purchase } from "../entities";
 import { userRepository } from "../repositories";
 import { AssertsShape } from "yup/lib/object";
-import * as dotenv from "dotenv";
 import { purchaseShape } from "../shapes";
 import { purchaseRepository } from "../repositories";
-dotenv.config();
 
 class PurchaseService {
   purchaseUser = async ({ decoded }: Request) =>

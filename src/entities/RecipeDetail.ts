@@ -5,7 +5,6 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { Ingredient } from "./Ingredients";
 import { Recipe } from "./Recipe";
 
 @Entity("recipe_details")
@@ -21,10 +20,6 @@ export class RecipeDetail {
 
   @Column()
   measurementUnit: string;
-
-  /* @ManyToOne(() => Ingredient, (ingredient) => ingredient.recipeDetails)
-  @JoinColumn({ name: "ingredientId" })
-  ingredient: Ingredient; */
 
   @ManyToOne(() => Recipe, (recipe) => recipe.recipeDetails)
   @JoinColumn({ name: "recipeId" })

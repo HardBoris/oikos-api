@@ -1,15 +1,12 @@
-import { Request, Response } from "express";
-import { Ingredient, ProductionDetail, PurchaseDetail } from "../entities";
+import { Request } from "express";
+import { ProductionDetail } from "../entities";
 import {
-  ingredientRepository,
   proDetRepository,
   productionRepository,
-  purchaseDetailRepository,
-  purchaseRepository,
   recipeRepository,
 } from "../repositories";
 import { AssertsShape } from "yup/lib/object";
-import { productionDetailShape, purchaseDetailShape } from "../shapes";
+import { productionDetailShape } from "../shapes";
 import { ErrorHandler } from "../errors";
 
 class ProDetService {

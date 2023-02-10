@@ -1,7 +1,6 @@
 import { Repository } from "typeorm";
 import { AppDataSource } from "../data-source";
 import { Purchase } from "../entities";
-import { User } from "../entities/User";
 
 interface IPurchaseRepo {
   save: (purchase: Purchase) => Promise<Purchase>;

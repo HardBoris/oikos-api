@@ -9,27 +9,14 @@ class RDService {
   recipe = async ({ params }: Request) =>
     await recipeRepository.findOne({ recipeId: params.id });
 
-  /* ingredient = async ({ body }: Request) =>
-    await ingredientRepository.findOne({ ingredientName: body.ingredientName }); */
-
   rdCreator = async (req: Request): Promise<AssertsShape<any>> => {
     const myRecipe = await this.recipe(req);
 
     const body = req.body;
 
-    // let ingrediente = await this.ingredient(req);
-
-    /* if (!ingrediente) {
-      ingrediente = await ingredientRepository.save({
-        ingredientName: body.ingredientName,
-        measurementUnit: body.measurementUnit,
-      });
-    } */
-
     const detail: RecipeDetail = await recipeDetailRepository.save({
       ...body,
       recipe: myRecipe.recipeId,
-      // ingredient: ingrediente.ingredientId,
     });
     return await recipeDetailShape.recipeDetailCreator.validate(detail, {
       stripUnknown: true,

@@ -2,9 +2,7 @@ import { Request } from "express";
 import { Ingredient } from "../entities";
 import { ingredientRepository } from "../repositories";
 import { AssertsShape } from "yup/lib/object";
-import * as dotenv from "dotenv";
 import { ingredientShape } from "../shapes";
-dotenv.config();
 
 class IngredientService {
   ingredientCreator = async ({ body }: Request): Promise<AssertsShape<any>> => {

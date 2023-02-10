@@ -1,15 +1,13 @@
-import { Request, Response } from "express";
-import { Ingredient, PurchaseDetail } from "../entities";
+import { Request } from "express";
+import { PurchaseDetail } from "../entities";
 import {
   ingredientRepository,
   purchaseDetailRepository,
   purchaseRepository,
 } from "../repositories";
 import { AssertsShape } from "yup/lib/object";
-import * as dotenv from "dotenv";
 import { purchaseDetailShape } from "../shapes";
 import { ErrorHandler } from "../errors";
-dotenv.config();
 
 class PDService {
   purchase = async ({ params }: Request) =>

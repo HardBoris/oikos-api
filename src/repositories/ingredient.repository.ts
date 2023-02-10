@@ -1,7 +1,6 @@
 import { Repository } from "typeorm";
 import { AppDataSource } from "../data-source";
 import { Ingredient } from "../entities";
-import { User } from "../entities/User";
 
 interface IIngredientRepo {
   save: (ingredient: Ingredient) => Promise<Ingredient>;
