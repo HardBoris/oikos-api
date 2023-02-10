@@ -5,6 +5,7 @@ import pdService from "./purchaseDetail.service";
 import recipeService from "./recipe.service";
 import rdService from "./recipeDetail.service";
 import productionService from "./production.service";
+import proDetService from "./productionDetail.service";
 
 export {
   userService,
@@ -14,4 +15,5 @@ export {
   recipeService,
   rdService,
   productionService,
+  proDetService,
 };
