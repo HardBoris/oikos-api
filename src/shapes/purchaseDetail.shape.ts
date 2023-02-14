@@ -21,6 +21,23 @@ class PurchaseDetailShape {
     ingredient: yup.string(),
     purchase: yup.string(),
   });
+
+  detailsCreator = yup.object().shape({
+    purchaseDetails: yup
+      .array()
+      .of(
+        yup
+          .object()
+          .shape({
+            ingredientName: yup.string().lowercase().required(),
+            ingredientQty: yup.number().positive().required(),
+            measurementUnit: yup.string().lowercase().required(),
+            ingredientPrice: yup.number().positive().required(),
+          })
+          .required()
+      )
+      .required(),
+  });
 }
 
 export default new PurchaseDetailShape();

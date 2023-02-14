@@ -1,5 +1,5 @@
 import { Request } from "express";
-import { PurchaseDetail } from "../entities";
+import { Ingredient, PurchaseDetail } from "../entities";
 import {
   ingredientRepository,
   purchaseDetailRepository,
@@ -8,6 +8,7 @@ import {
 import { AssertsShape } from "yup/lib/object";
 import { purchaseDetailShape } from "../shapes";
 import { ErrorHandler } from "../errors";
+import { TPDetails } from "../types";
 
 class PDService {
   purchase = async ({ params }: Request) =>
@@ -65,6 +66,46 @@ class PDService {
 
     const updatedDetail = await purchaseDetailRepository.save(detail);
     return await purchaseDetailShape.purchaseDetail.validate(updatedDetail, {
+      stripUnknown: true,
+    });
+  };
+
+  detailsCreator = async (req: Request) => {
+    const myPurchase = await this.purchase(req);
+
+    const body = req.validated as TPDetails;
+    console.log(body);
+    if (!body.purchaseDetails.length) {
+      throw new ErrorHandler(400, "Purchase arrays can not be empty!");
+    }
+
+    const otro = body.purchaseDetails.map((item) => ({
+      ...item,
+      purchase: myPurchase.purchaseId,
+    }));
+    console.log(otro);
+    // return newBody;
+    /* const myIngredient = async () => {
+      let otro: Ingredient = {} as Ingredient;
+      for (let item of body.purchaseDetails) {
+      otro = await ingredientRepository.findOne({ ingredientName: item.ingredientName });
+
+    if (!otro) {
+      otro = await ingredientRepository.save({
+        ingredientName: item.ingredientName,
+        measurementUnit: item.measurementUnit,
+      });
+    }
+
+    item.ingredient = otro.ingredientId
+    }
+    } */
+
+    // console.log(newBody);
+
+    const purchaseDetails: PurchaseDetail[] =
+      await purchaseDetailRepository.saveMany(otro);
+    return await purchaseDetailShape.detailsCreator.validate(purchaseDetails, {
       stripUnknown: true,
     });
   };

@@ -12,6 +12,13 @@ purchaseDetailRouter.post(
   pdController.pdCreator
 );
 
+purchaseDetailRouter.post(
+  "/prueba/:id",
+  tokenValidator,
+  // validadeSchema(purchaseDetailShape.detailsCreator),
+  pdController.detailsCreator
+);
+
 purchaseDetailRouter.get(
   "/purchasedetails",
   tokenValidator,

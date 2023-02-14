@@ -16,6 +16,12 @@ class PDController {
     const detail = await pdService.pdEditor(req);
     return res.status(200).json(detail);
   };
+
+  detailsCreator = async (req: Request, res: Response) => {
+    const purchaseDetails = await pdService.detailsCreator(req);
+    console.log(purchaseDetails);
+    return res.status(200).json(purchaseDetails);
+  };
 }
 
 export default new PDController();
