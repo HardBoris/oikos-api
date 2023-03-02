@@ -5,13 +5,13 @@ import tokenValidator from "../middlewares/tokenValidator.middleware";
 const purchaseRouter = Router();
 
 purchaseRouter.post(
-  "/purchases",
+  "/oikos-api/purchases",
   tokenValidator,
   purchaseController.purchaseCreator
 );
 
 purchaseRouter.get(
-  "/purchases",
+  "/oikos-api/purchases",
   tokenValidator,
   purchaseController.purchaseLoader
 );

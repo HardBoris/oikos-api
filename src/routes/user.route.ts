@@ -7,21 +7,21 @@ import { userShape } from "../shapes";
 const userRouter = Router();
 
 userRouter.post(
-  "/users/register",
+  "/oikos-api/users/register",
   validadeSchema(userShape.userCreator),
   verifyUserExists,
   userController.userCreator
 );
 
 userRouter.get(
-  "/users",
+  "/oikos-api/users",
   // tokenValidator,
   // ownerValidator,
   userController.userLoader
 );
 
 userRouter.post(
-  "/users/login",
+  "/oikos-api/users/login",
   validadeSchema(userShape.userLoger),
   // verifyUserNotExists,
   userController.userLoger

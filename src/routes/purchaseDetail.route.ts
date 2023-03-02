@@ -8,7 +8,7 @@ const purchaseDetailRouter = Router();
 
 purchaseDetailRouter.post(
   "/purchases/:id",
-  tokenValidator,
+  // tokenValidator,
   pdController.pdCreator
 );
 
