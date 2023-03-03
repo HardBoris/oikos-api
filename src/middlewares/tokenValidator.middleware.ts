@@ -9,7 +9,6 @@ const tokenValidator = async (
   next: NextFunction
 ) => {
   const token: string = req.headers.authorization?.split(" ")[1];
-  console.log(token);
 
   if (!token) {
     throw new ErrorHandler(400, "Missing authorization token.");

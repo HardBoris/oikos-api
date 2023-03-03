@@ -7,8 +7,8 @@ import { purchaseDetailShape } from "../shapes";
 const purchaseDetailRouter = Router();
 
 purchaseDetailRouter.post(
-  "/purchases/:id",
-  // tokenValidator,
+  "/oikos-api/purchases/:id",
+  tokenValidator,
   pdController.pdCreator
 );
 
