@@ -12,6 +12,11 @@ class PurchaseController {
     const { status, purchases } = await purchaseService.purchaseLoader(req);
     return res.status(status).json(purchases);
   };
+
+  purchaseEliminator = async (req: Request, res: Response) => {
+    const { status, message } = await purchaseService.purchaseEliminator(req);
+    return res.status(status).json(message);
+  };
 }
 
 export default new PurchaseController();

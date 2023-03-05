@@ -30,6 +30,15 @@ class PurchaseService {
       purchases: purchases,
     };
   };
+
+  purchaseEliminator = async (req: Request) => {
+    console.log(req.params);
+    await purchaseRepository.delete(req.params.id);
+    return {
+      status: 200,
+      message: "item deletado",
+    };
+  };
 }
 
 export default new PurchaseService();

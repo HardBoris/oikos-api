@@ -1,4 +1,4 @@
-import { Repository } from "typeorm";
+import { DeleteResult, Repository } from "typeorm";
 import { AppDataSource } from "../data-source";
 import { Purchase } from "../entities";
 
@@ -6,6 +6,7 @@ interface IPurchaseRepo {
   save: (purchase: Purchase) => Promise<Purchase>;
   all: () => Promise<Purchase[]>;
   findOne: (payload: object) => Promise<Purchase>;
+  delete: (id: string) => Promise<DeleteResult>;
 }
 
 class PurchaseRepo implements IPurchaseRepo {
@@ -20,6 +21,9 @@ class PurchaseRepo implements IPurchaseRepo {
   all = async () => await this.ormRepo.find();
   findOne = async (payload: object) => {
     return await this.ormRepo.findOneBy({ ...payload });
+  };
+  delete = async (id: string) => {
+    return await this.ormRepo.delete(id);
   };
 }
 
