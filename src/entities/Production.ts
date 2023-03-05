@@ -24,7 +24,7 @@ export class Production {
   @OneToMany(
     () => ProductionDetail,
     (productionDetail) => productionDetail.production,
-    { eager: true, cascade: true }
+    { eager: true }
   )
   productionDetails: ProductionDetail[];
 }
