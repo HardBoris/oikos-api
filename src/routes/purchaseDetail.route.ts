@@ -20,7 +20,7 @@ purchaseDetailRouter.post(
 );
 
 purchaseDetailRouter.get(
-  "/purchasedetails",
+  "/oikos-api/purchases/:id",
   tokenValidator,
   pdController.pdLoader
 );
