@@ -4,7 +4,6 @@ import { purchaseService } from "../services";
 class PurchaseController {
   purchaseCreator = async (req: Request, res: Response) => {
     const purchase = await purchaseService.purchaseCreator(req);
-    console.log(req.body);
     return res.status(201).json(purchase);
   };
 
