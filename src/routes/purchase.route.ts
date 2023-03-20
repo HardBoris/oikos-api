@@ -16,6 +16,12 @@ purchaseRouter.get(
   purchaseController.purchaseLoader
 );
 
+purchaseRouter.get(
+  "/oikos-api/purchases/:id",
+  tokenValidator,
+  purchaseController.purchaseUnique
+);
+
 purchaseRouter.delete(
   "/oikos-api/purchases/:id",
   tokenValidator,

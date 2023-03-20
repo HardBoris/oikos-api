@@ -31,6 +31,16 @@ class PurchaseService {
     };
   };
 
+  purchaseUnique = async (req: Request) => {
+    const unique: Purchase = await purchaseRepository.findOne({
+      purchaseId: req.params.id,
+    });
+    return {
+      status: 200,
+      purchase: unique,
+    };
+  };
+
   purchaseEliminator = async (req: Request) => {
     console.log(req.params);
     await purchaseRepository.delete(req.params.id);

@@ -12,6 +12,11 @@ class PurchaseController {
     return res.status(status).json(purchases);
   };
 
+  purchaseUnique = async (req: Request, res: Response) => {
+    const { status, purchase } = await purchaseService.purchaseUnique(req);
+    return res.status(status).json(purchase);
+  };
+
   purchaseEliminator = async (req: Request, res: Response) => {
     const { status, message } = await purchaseService.purchaseEliminator(req);
     return res.status(status).json(message);
