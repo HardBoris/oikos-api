@@ -74,7 +74,7 @@ class PDService {
     const myPurchase = await this.purchase(req);
 
     const body = req.validated as TPDetails;
-    console.log(body);
+
     if (!body.purchaseDetails.length) {
       throw new ErrorHandler(400, "Purchase arrays can not be empty!");
     }
@@ -83,7 +83,7 @@ class PDService {
       ...item,
       purchase: myPurchase.purchaseId,
     }));
-    console.log(otro);
+
     // return newBody;
     /* const myIngredient = async () => {
       let otro: Ingredient = {} as Ingredient;

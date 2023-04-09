@@ -35,10 +35,10 @@ class PurchaseDetailRepo implements IPurchaseDetailRepo {
       const vector = await this.findOne({
         purchaseDetailId: x.purchaseDetailId,
       });
-      console.log(vector);
+
       returnDetails.push(vector);
     }
-    console.log(returnDetails);
+
     return returnDetails;
   };
 }
