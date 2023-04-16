@@ -84,25 +84,6 @@ class PDService {
       purchase: myPurchase.purchaseId,
     }));
 
-    // return newBody;
-    /* const myIngredient = async () => {
-      let otro: Ingredient = {} as Ingredient;
-      for (let item of body.purchaseDetails) {
-      otro = await ingredientRepository.findOne({ ingredientName: item.ingredientName });
-
-    if (!otro) {
-      otro = await ingredientRepository.save({
-        ingredientName: item.ingredientName,
-        measurementUnit: item.measurementUnit,
-      });
-    }
-
-    item.ingredient = otro.ingredientId
-    }
-    } */
-
-    // console.log(newBody);
-
     const purchaseDetails: PurchaseDetail[] =
       await purchaseDetailRepository.saveMany(otro);
     return await purchaseDetailShape.detailsCreator.validate(purchaseDetails, {
